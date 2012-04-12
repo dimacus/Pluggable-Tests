@@ -4,12 +4,13 @@ require 'hpricot'
 
 Given /^I am viewing all deals for San Francisco$/ do
   @driver = Selenium::WebDriver.for :firefox
-end
 
-Then /^I should see a list of deals related to San Francisco$/ do
   @driver.navigate.to "http://touch.groupon.com"
   @driver.navigate.to "http://touch.groupon.com/san-francisco"
 
+end
+
+Then /^I should see a list of deals related to San Francisco$/ do
 
   @driver.title.should == "Groupon Deal of the Day"
 
