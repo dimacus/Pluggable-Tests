@@ -1,2 +1,5 @@
 
-api: -r features/step_defenitions/api features
+api:      -r features/step_defenitions/api features
+selenium: -r features/step_defenitions/selenium features
+touch:    -r features/step_defenitions/touch features
+iphone:   -r features/step_defenitions/iphone features

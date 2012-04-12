@@ -1,19 +1,22 @@
+require 'cucumber/rake/task'
 
 namespace :cucumber do
 
-  desc 'API tests'
-  task :api do
 
+  Cucumber::Rake::Task.new(:api, 'API tests') do |t|
+    t.profile = 'api'
   end
 
-  desc 'Selenium tests'
-  task :selenium do
-
+  Cucumber::Rake::Task.new(:selenium, 'Selenium tests') do |t|
+    t.profile = 'selenium'
   end
 
-  desc 'iPhone tests'
-  task :iphone do
+  Cucumber::Rake::Task.new(:touch, 'Touch tests') do |t|
+    t.profile = 'touch'
+  end
 
+  Cucumber::Rake::Task.new(:iphone, 'iPhone tests') do |t|
+    t.profile = 'iphone'
   end
 
 end
