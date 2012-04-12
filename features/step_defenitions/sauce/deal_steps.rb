@@ -26,5 +26,6 @@ Then /^I should see a list of deals related to San Francisco$/ do
   page_source.search("div.deal").size.should > 0
   page_source.at("h2#new_drawer_anchor a").inner_text.should == "San Francisco"
 
-  @driver.close
+  sleep 5
+  @driver.stop
 end

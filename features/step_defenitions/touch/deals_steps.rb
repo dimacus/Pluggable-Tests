@@ -19,5 +19,6 @@ Then /^I should see a list of deals related to San Francisco$/ do
   page_source.search("ul.ranked_deals li").size.should > 0
   page_source.at("a.city").inner_text.should == "San Francisco"
 
+  sleep 5
   @driver.close
 end
