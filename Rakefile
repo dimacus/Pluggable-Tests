@@ -31,3 +31,8 @@ require 'cucumber/rake/task'
   Cucumber::Rake::Task.new(:iphone_runner) do |t|
     t.profile = 'iphone'
   end
+
+  desc "Run all tests"
+  task :all => [:api, :selenium, :touch, :iphone]
+
+  task :default => :all
