@@ -24,6 +24,10 @@ require 'cucumber/rake/task'
       puts "Skipping iPhone...\n\n"
     end
 
+    Cucumber::Rake::Task.new(:iphone_runner) do |t|
+      t.profile = 'iphone'
+    end
+
     Rake::Task[:iphone_runner].invoke
 
   end
@@ -40,17 +44,13 @@ require 'cucumber/rake/task'
       puts "Skipping Sauce...\n\n"
     end
 
+    Cucumber::Rake::Task.new(:sauce_runner) do |t|
+      t.profile = 'sauce'
+    end
+
     Rake::Task[:sauce_runner].invoke
   end
 
-
-  Cucumber::Rake::Task.new(:iphone_runner) do |t|
-    t.profile = 'iphone'
-  end
-
-  Cucumber::Rake::Task.new(:sauce_runner) do |t|
-    t.profile = 'sauce'
-  end
 
   desc "Run all tests"
   task :all => [:api, :selenium, :touch, :iphone, :sauce]
