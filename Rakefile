@@ -28,11 +28,31 @@ require 'cucumber/rake/task'
 
   end
 
+  desc "Sauce tests"
+  task :sauce do
+    unless ENV['SAUCE_USERNAME'] and ENV['SAUCE_KEY']
+      puts "\n\nCan't run sauce tests without a sauce account"
+      puts "You can get a free account here: http://saucelabs.com/"
+
+      puts "Provide username and API Key: "
+      puts "export SAUCE_USERNAME=username"
+      puts "export SAUCE_KEY=api_key\n\n"
+      puts "Skipping Sauce...\n\n"
+    end
+
+    Rake::Task[:sauce_runner].invoke
+  end
+
+
   Cucumber::Rake::Task.new(:iphone_runner) do |t|
     t.profile = 'iphone'
   end
 
+  Cucumber::Rake::Task.new(:sauce_runner) do |t|
+    t.profile = 'sauce'
+  end
+
   desc "Run all tests"
-  task :all => [:api, :selenium, :touch, :iphone]
+  task :all => [:api, :selenium, :touch, :iphone, :sauce]
 
   task :default => :all
