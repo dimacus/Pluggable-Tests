@@ -17,12 +17,8 @@ require 'cucumber/rake/task'
 
   desc "iPhone tests"
   task :iphone do
-    unless ENV['IPHONE_SYM_PATH']
-      puts "\n\nCan't run iPhone tests unless you provide the path to the iPhone webdriver"
-      puts "Example: "
-      puts "export IPHONE_SYM_PATH=/path/to/iPhone/webdriver\n\n"
-      puts "Skipping iPhone...\n\n"
-    end
+    
+    ENV['IPHONE_SYM_PATH'] = "iWebDriver.app"
 
     Cucumber::Rake::Task.new(:iphone_runner) do |t|
       t.profile = 'iphone'
