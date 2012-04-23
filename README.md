@@ -24,15 +24,8 @@ rake all
 
 
 ### To run the iPhone example
+You will need iPhone SDK installed on your computer. The pre-compiled iWebdriver is included, but it is older version so it might be buggy.
 
-You will need to have an iPhone Webdriver simulator app available
-Installation instructions can be found here http://code.google.com/p/selenium/wiki/IPhoneDriver
-
-Next you will need to provide the path to the simulator app
-
-```bash
-export IPHONE_SYM_PATH=/path/to/iPhone/webdriver
-```
 
 ### To run Sauce example
 
